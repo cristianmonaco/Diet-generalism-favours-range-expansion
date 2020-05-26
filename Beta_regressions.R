@@ -12,7 +12,7 @@ pacman::p_load(readr, tidyverse, scales, PerformanceAnalytics, ggrepel, broom, g
 
 # Prepare dataset with scaled variables -----------------------------------
 
-spp_data <- read_csv('data/spp_arrival_traits_data.csv')
+spp_data <- read_csv('spp_arrival_traits_data.csv')
 
 # Transforms
 data_spp_traits_tmp <- spp_data %>% 
@@ -835,7 +835,7 @@ sq_diff_res_all_mat <- matrix(sq_diff_res_all, ncol = 70)
 # taxize_spp_class <- classification(spp, db = "ncbi")
 # write_rds(taxize_spp_class, 'clean data GCB paper/taxize_spp_class.Rda')
 
-taxize_spp_class <- read_rds('data/taxize_spp_class.Rda')
+taxize_spp_class <- read_rds('taxize_spp_class.Rda')
 taxize_spp_tree <- class2tree(taxize_spp_class, check = TRUE)
 plot(taxize_spp_tree)
 phylo <- taxize_spp_tree$phylo  
@@ -1383,7 +1383,7 @@ sq_diff_res_all_mat <- matrix(sq_diff_res_all, ncol = 70)
 # taxize_spp_class <- classification(spp, db = "ncbi")
 # write_rds(taxize_spp_class, 'clean data GCB paper/taxize_spp_class.Rda')
 
-taxize_spp_class <- read_rds('data/taxize_spp_class.Rda')
+taxize_spp_class <- read_rds('taxize_spp_class.Rda')
 taxize_spp_tree <- class2tree(taxize_spp_class, check = TRUE)
 plot(taxize_spp_tree)
 phylo <- taxize_spp_tree$phylo  
@@ -1926,9 +1926,9 @@ sq_diff_res_all_mat <- matrix(sq_diff_res_all, ncol = 70)
 
 # usethis::edit_r_environ() # set up API key in .Renviron file. Add line ENTREZ=API_KEY (key without quotes), and restart R.
 # taxize_spp_class <- classification(spp, db = "ncbi")
-# write_rds(taxize_spp_class, 'data/taxize_spp_class.Rda')
+# write_rds(taxize_spp_class, 'taxize_spp_class.Rda')
 
-taxize_spp_class <- read_rds('data/taxize_spp_class.Rda')
+taxize_spp_class <- read_rds('taxize_spp_class.Rda')
 taxize_spp_tree <- class2tree(taxize_spp_class, check = TRUE)
 plot(taxize_spp_tree)
 phylo <- taxize_spp_tree$phylo  
@@ -1994,7 +1994,7 @@ ggdraw(pl[[3]])
 
 spp_names <- data_spp_traits_code %>% distinct(species)
 
-latDist <- read_csv('data/Lat_distrib_spp_GBIF.csv') %>% dplyr::rename(species = name) 
+latDist <- read_csv('Lat_distrib_spp_GBIF.csv') %>% dplyr::rename(species = name) 
 
 latDist_spp <- latDist %>% filter(species %in% spp_names$species) 
 
